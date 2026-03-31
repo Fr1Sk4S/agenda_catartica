@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agenda Catartica</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📋 Agenda Catartica</h1>
+            <p class="subtitle">Organizza le tue giornate, il menu settimanale e la spesa</p>
+        </header>
+
+        <!-- SEZIONE 1: ATTIVITÀ QUOTIDIANE -->
+        <section class="section" id="attivita-section">
+            <div class="section-header">
+                <h2>✅ Attività Quotidiane</h2>
+                <button class="toggle-btn" onclick="toggleSection('attivita-section')">▼</button>
+            </div>
+            <div class="section-content">
+                <div class="day-selector">
+                    <label for="day-select">Scegli il giorno:</label>
+                    <select id="day-select" onchange="updateAttivita()">
+                        <option value="">-- Seleziona un giorno --</option>
+                        <option value="lunedi">Lunedì</option>
+                        <option value="martedi">Martedì</option>
+                        <option value="mercoledi">Mercoledì</option>
+                        <option value="giovedi">Giovedì</option>
+                        <option value="venerdi">Venerdì</option>
+                        <option value="sabato">Sabato</option>
+                        <option value="domenica">Domenica</option>
+                    </select>
+                </div>
+                
+                <div id="attivita-list" class="attivita-list">
+                    <!-- Verranno compilate dinamicamente -->
+                </div>
+
+                <div class="activity-input">
+                    <input type="text" id="new-activity" placeholder="Aggiungi una nuova attività...">
+                    <button onclick="aggiungiAttivita()">Aggiungi</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEZIONE 2: PROGRAMMA CUCINA SETTIMANALE -->
+        <section class="section" id="menu-section">
+            <div class="section-header">
+                <h2>🍽️ Programma Cucina Settimanale</h2>
+                <button class="toggle-btn" onclick="toggleSection('menu-section')">▼</button>
+            </div>
+            <div class="section-content">
+                <div class="menu-grid">
+                    <div class="menu-day">
+                        <h3>Lunedì</h3>
+                        <select class="recipe-select" data-day="lunedi" onchange="updateSpesa()">
+                            <option value="">-- Scegli ricetta --</option>
+                            <option value="pasta|https://blog.giallozafferano.it/giorgiocremona/archives/pasta-al-ragu-ricette-base-delle-cucina-italiana/">Pasta al Ragù</option>
+                            <option value="pollo|https://www.gnamgnam.it/ricetta/pollo-al-forno.htm">Pollo al Forno</option>
+                            <option value="orata_acqua_pazza|https://ricette.giallozafferano.it/Orata-all-acqua-pazza.html">Orata all'Acqua Pazza</option>
+                            <option value="risotto|https://ricette.giallozafferano.it/Risotto-ai-funghi.html">Risotto ai Funghi</option>
+                        </select>
+                        <div class="recipe-link" id="link-lunedi"></div>
+                    </div>
+
+                    <div class="menu-day">
+                        <h3>Martedì</h3>
+                        <select class="recipe-select" data-day="martedi" onchange="updateSpesa()">
+                            <option value="">-- Scegli ricetta --</option>
+                            <option value="pizza|https://ricette.giallozafferano.it/Pizza-Margherita.html">Pizza Fatta in Casa</option>
+                            <option value="lasagna|https://ricette.giallozafferano.it/Lasagne-alla-Bolognese.html">Lasagna</option>
+                            <option value="verdure_grigliate|https://ricette.giallozafferano.it/Verdure-grigliate.html">Verdure Grigliate</option>
+                            <option value="minestrone|https://ricette.giallozafferano.it/Minestrone-di-verdure.html">Minestrone</option>
+                        </select>
+                        <div class="recipe-link" id="link-martedi"></div>
+                    </div>
+
+                    <div class="menu-day">
+                        <h3>Mercoledì</h3>
+                        <select class="recipe-select" data-day="mercoledi" onchange="updateSpesa()">
+                            <option value="">-- Scegli ricetta --</option>
+                            <option value="branzino|https://ricette.giallozafferano.it/Branzino-al-forno.html">Branzino al Forno</option>
+                            <option value="riso|https://ricette.giallozafferano.it/Riso-gratinato-alle-verdure.html">Riso Gratinato con Verdure</option>
+                            <option value="polpette|https://ricette.giallozafferano.it/Polpette-in-umido.html">Polpette in Umido</option>
+                            <option value="frittata|https://ricette.giallozafferano.it/Frittata.html">Frittata</option>
+                        </select>
+                        <div class="recipe-link" id="link-mercoledi"></div>
+                    </div>
+
+                    <div class="menu-day">
+                        <h3>Giovedì</h3>
+                        <select class="recipe-select" data-day="giovedi" onchange="updateSpesa()">
+                            <option value="">-- Scegli ricetta --</option>
+                            <option value="gnocchi|https://ricette.giallozafferano.it/Gnocchi-di-patate.html">Gnocchi di Patate</option>
+                            <option value="melanzane|https://blog.giallozafferano.it/lacucinaromanadisoranina/parmigiana-di-melanzane-f/">Melanzane alla Parmigiana</option>
+                            <option value="pasta_salmone|https://ricette.giallozafferano.it/Pasta-al-salmone.html">Pasta al Salmone</option>
+                            <option value="pollo_curry|https://ricette.giallozafferano.it/Pollo-al-curry.html">Pollo al Curry</option>
+                        </select>
+                        <div class="recipe-link" id="link-giovedi"></div>
+                    </div>
+
+                    <div class="menu-day">
+                        <h3>Venerdì</h3>
+                        <select class="recipe-select" data-day="venerdi" onchange="updateSpesa()">
+                            <option value="">-- Scegli ricetta --</option>
+                            <option value="orata|https://ricette.giallozafferano.it/Orata-al-cartoccio.html">Orata al Cartoccio</option>
+                            <option value="pasta_vongole|https://ricette.giallozafferano.it/Spaghetti-alle-vongole.html">Spaghetti alle Vongole</option>
+                            <option value="bistecca_fiorentina|https://ricette.giallozafferano.it/Bistecca-alla-fiorentina.html">Bistecca alla Fiorentina</option>
+                            <option value="zuppa|https://ricette.giallozafferano.it/Zuppa-di-pesce.html">Zuppa di Pesce</option>
+                        </select>
+                        <div class="recipe-link" id="link-venerdi"></div>
+                    </div>
+
+                    <div class="menu-day">
+                        <h3>Sabato</h3>
+                        <select class="recipe-select" data-day="sabato" onchange="updateSpesa()">
+                            <option value="">-- Scegli ricetta --</option>
+                            <option value="filetto_pepe_verde|https://ricette.giallozafferano.it/Filetto-al-pepe-verde.html">Filetto al Pepe Verde</option>
+                            <option value="arrosticini|https://ricette.giallozafferano.it/Arrosticini.html">Arrosticini</option>
+                            <option value="pappardelle|https://ricette.giallozafferano.it/Pappardelle-al-ragu-di-cinghiale.html">Pappardelle al Cinghiale</option>
+                            <option value="scaloppine|https://ricette.giallozafferano.it/Scaloppine-al-limone.html">Scaloppine al Limone</option>
+                        </select>
+                        <div class="recipe-link" id="link-sabato"></div>
+                    </div>
+
+                    <div class="menu-day">
+                        <h3>Domenica</h3>
+                        <select class="recipe-select" data-day="domenica" onchange="updateSpesa()">
+                            <option value="">-- Scegli ricetta --</option>
+                            <option value="brasato|https://ricette.giallozafferano.it/Brasato-al-barolo.html">Brasato al Barolo</option>
+                            <option value="ravioli|https://ricette.giallozafferano.it/Ravioli-ricotta-e-spinaci.html">Ravioli Fatti a Mano</option>
+                            <option value="pollo_arrosto|https://ricette.giallozafferano.it/Pollo-arrosto.html">Pollo Arrosto</option>
+                            <option value="cacciucco|https://ricette.giallozafferano.it/Cacciucco-alla-livornese.html">Cacciucco alla Livornese</option>
+                        </select>
+                        <div class="recipe-link" id="link-domenica"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEZIONE 3: LISTA DELLA SPESA -->
+        <section class="section" id="spesa-section">
+            <div class="section-header">
+                <h2>🛒 Lista della Spesa Settimanale</h2>
+                <button class="toggle-btn" onclick="toggleSection('spesa-section')">▼</button>
+            </div>
+            <div class="section-content">
+                <table class="spesa-table">
+                    <thead>
+                        <tr>
+                            <th>Prodotto</th>
+                            <th>Quantità</th>
+                            <th>Categoria</th>
+                            <th>Prezzo Est.</th>
+                            <th>Acquistato</th>
+                        </tr>
+                    </thead>
+                    <tbody id="spesa-body">
+                        <!-- Verranno compilate dinamicamente -->
+                    </tbody>
+                </table>
+
+                <div class="spesa-input">
+                    <input type="text" id="new-product" placeholder="Prodotto">
+                    <input type="number" id="product-qty" placeholder="Quantità" value="1">
+                    <select id="product-category">
+                        <option value="Verdure">Verdure</option>
+                        <option value="Verdure_grigliate">Verdure Grigliate</option>
+                        <option value="Frutta">Frutta</option>
+                        <option value="Carne">Carne</option>
+                        <option value="Filetto_pepe_verde">Filetto al Pepe Verde</option>
+                        <option value="Pesce">Pesce</option>
+                        <option value="Orata">Orata</option>
+                        <option value="Latticini">Latticini</option>
+                        <option value="Pasta/Riso">Pasta/Riso</option>
+                        <option value="Spezie">Spezie</option>
+                        <option value="Scaloppine">Scaloppine</option>
+                        <option value="Bistecca">Bistecca</option>
+                        <option value="Polpette">Polpette</option>
+                        <option value="Altro">Altro</option>
+                    </select>
+                    <input type="number" id="product-price" placeholder="Prezzo" step="0.01">
+                    <button onclick="aggiungiProdotto()">Aggiungi</button>
+                </div>
+
+                <div class="spesa-summary">
+                    <p>Totale stimato: <strong>€ <span id="total-price">0.00</span></strong></p>
+                    <button class="reset-btn" onclick="resetSpesa()">Resetta Lista</button>
+                    <button class="export-btn" onclick="esportaSpesa()">Esporta PDF</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEZIONE 4: GESTIONE CLIENTI -->
+        <section class="section" id="clienti-section">
+            <div class="section-header">
+                <h2>👥 Gestione Clienti</h2>
+                <button class="toggle-btn" onclick="toggleSection('clienti-section')">▼</button>
+            </div>
+            <div class="section-content">
+                <div class="clienti-form">
+                    <h3>Aggiungi Nuovo Cliente</h3>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="client-nome">Nome *</label>
+                            <input type="text" id="client-nome" placeholder="Nome">
+                        </div>
+                        <div class="form-group">
+                            <label for="client-cognome">Cognome *</label>
+                            <input type="text" id="client-cognome" placeholder="Cognome">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="client-data">Data *</label>
+                            <input type="date" id="client-data">
+                        </div>
+                        <div class="form-group">
+                            <label for="client-orario">Orario *</label>
+                            <input type="time" id="client-orario">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="client-telefono">Telefono *</label>
+                            <input type="tel" id="client-telefono" placeholder="+39 123 456 7890">
+                        </div>
+                        <div class="form-group">
+                            <label for="client-email">Email *</label>
+                            <input type="email" id="client-email" placeholder="email@example.com">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group full">
+                            <label for="client-note">Note</label>
+                            <textarea id="client-note" placeholder="Aggiungi note aggiuntive..." rows="3"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="form-actions">
+                        <button class="btn-submit" onclick="aggiungiCliente()">Aggiungi Cliente</button>
+                        <button class="btn-reset" onclick="resetFormCliente()">Ripulisci</button>
+                    </div>
+                </div>
+
+                <div class="clienti-table-container">
+                    <h3>Elenco Clienti</h3>
+                    <div class="table-filter">
+                        <input type="date" id="filter-data" placeholder="Filtra per data" onchange="filtreClienti()">
+                        <button onclick="resetFiltri()">Ripristina Filtri</button>
+                    </div>
+                    <div class="table-scroll">
+                        <table class="clienti-table">
+                            <thead>
+                                <tr>
+                                    <th>Nome</th>
+                                    <th>Cognome</th>
+                                    <th>Data</th>
+                                    <th>Orario</th>
+                                    <th>Telefono</th>
+                                    <th>Email</th>
+                                    <th>Note</th>
+                                    <th>Azioni</th>
+                                </tr>
+                            </thead>
+                            <tbody id="clienti-body">
+                                <!-- Verranno compilate dinamicamente -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Agenda Catartica | Organizza la tua vita con stile</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
