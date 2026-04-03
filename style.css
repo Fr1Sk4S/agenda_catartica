@@ -665,6 +665,173 @@ header h1 {
 .btn-delete:hover {
     background: #dc2626;
 }
+.menu-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 24px;
+    border-bottom: 2px solid var(--border-color);
+    padding-bottom: 8px;
+}
+
+.menu-tab {
+    background: var(--background);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 30px;
+    cursor: pointer;
+    font-weight: 600;
+    color: var(--text-secondary);
+    transition: all 0.2s ease;
+}
+
+.menu-tab:hover {
+    background: var(--primary-color);
+    color: white;
+    transform: translateY(-2px);
+}
+
+.menu-tab.active {
+    background: var(--primary-color);
+    color: white;
+    box-shadow: 0 4px 10px rgba(99, 102, 241, 0.3);
+}
+
+.menu-card {
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+    overflow: hidden;
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.meal-group {
+    border-bottom: 1px solid var(--border-color);
+    padding: 16px 20px;
+    transition: background 0.2s;
+}
+
+.meal-group:last-child {
+    border-bottom: none;
+}
+
+.meal-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    user-select: none;
+}
+
+.meal-header h3 {
+    font-size: 1.2rem;
+    margin: 0;
+    color: var(--text-primary);
+}
+
+.meal-icon {
+    font-size: 1.4rem;
+}
+
+.toggle-meal {
+    margin-left: auto;
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+    color: var(--text-secondary);
+    transition: transform 0.2s;
+}
+
+.toggle-meal.collapsed {
+    transform: rotate(-90deg);
+}
+
+.meal-content {
+    padding-top: 8px;
+    transition: all 0.2s;
+}
+
+.meal-content.collapsed {
+    display: none;
+}
+
+.course-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 12px;
+    margin-bottom: 12px;
+}
+
+.course-selector {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.course-selector label {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.recipe-select {
+    width: 100%;
+    padding: 8px 10px;
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    background: var(--background);
+    font-size: 0.9rem;
+    transition: all 0.2s;
+}
+
+.recipe-select:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(99,102,241,0.2);
+}
+
+.recipe-link-summary {
+    margin-top: 12px;
+    padding: 10px;
+    background: #f1f5f9;
+    border-radius: 12px;
+    font-size: 0.85rem;
+}
+
+.recipe-link-summary a {
+    color: var(--primary-color);
+    text-decoration: none;
+    margin-right: 12px;
+}
+
+.recipe-link-summary a:hover {
+    text-decoration: underline;
+}
+
+.btn-show-links {
+    background: none;
+    border: none;
+    color: var(--primary-color);
+    font-size: 0.8rem;
+    cursor: pointer;
+    margin-top: 8px;
+    padding: 4px 8px;
+    border-radius: 20px;
+    transition: background 0.2s;
+}
+
+.btn-show-links:hover {
+    background: rgba(99,102,241,0.1);
+}
 
 /* FOOTER */
 footer {
