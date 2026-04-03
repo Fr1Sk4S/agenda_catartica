@@ -297,6 +297,67 @@ header h1 {
     background: #be185d;
 }
 
+.recipe-link-summary {
+    margin-top: 8px;
+    padding: 6px 8px;
+    background: #f8fafc;
+    border-radius: 8px;
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    border-left: 2px solid var(--primary-color);
+}
+
+.recipe-link-summary strong {
+    font-weight: 600;
+    color: var(--primary-color);
+    margin-right: 6px;
+}
+
+.recipe-link-summary a {
+    color: var(--primary-color);
+    text-decoration: none;
+    margin-right: 8px;
+    font-size: 0.75rem;
+}
+
+.recipe-link-summary a:hover {
+    text-decoration: underline;
+}
+
+/* ===== TAB GIORNI ===== */
+.menu-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 24px;
+    border-bottom: 2px solid var(--border-color);
+    padding-bottom: 8px;
+}
+
+.menu-tab {
+    background: var(--background);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 30px;
+    cursor: pointer;
+    font-weight: 600;
+    color: var(--text-secondary);
+    transition: all 0.2s ease;
+    font-size: 0.9rem;
+}
+
+.menu-tab:hover {
+    background: var(--primary-color);
+    color: white;
+    transform: translateY(-2px);
+}
+
+.menu-tab.active {
+    background: var(--primary-color);
+    color: white;
+    box-shadow: 0 4px 10px rgba(99, 102, 241, 0.3);
+}
+
 /* LISTA DELLA SPESA */
 .spesa-table {
     width: 100%;
@@ -436,401 +497,64 @@ header h1 {
     background: #059669;
 }
 
-/* GESTIONE CLIENTI */
-.clienti-form {
-    background: var(--background);
-    padding: 20px;
-    border-radius: 8px;
-    margin-bottom: 30px;
-    border-left: 4px solid #8b5cf6;
-}
-
-.clienti-form h3 {
-    color: var(--text-primary);
-    margin-bottom: 20px;
-    font-size: 1.1em;
-    font-weight: 600;
-}
-
-.form-row {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 15px;
-    margin-bottom: 15px;
-}
-
-.form-group {
-    display: flex;
-    flex-direction: column;
-}
-
-.form-group.full {
-    grid-column: 1 / -1;
-}
-
-.form-group label {
-    font-weight: 600;
-    color: var(--text-primary);
-    margin-bottom: 6px;
-    font-size: 0.95em;
-}
-
-.form-group input,
-.form-group textarea {
-    padding: 10px;
-    border: 2px solid var(--border-color);
-    border-radius: 6px;
-    font-size: 0.95em;
-    font-family: inherit;
-    transition: border-color 0.3s ease;
-}
-
-.form-group input:focus,
-.form-group textarea:focus {
-    outline: none;
-    border-color: #8b5cf6;
-    box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.1);
-}
-
-.form-group textarea {
-    resize: vertical;
-}
-
-.form-actions {
+/* ===== PULSANTI BACKUP E AGGIORNAMENTO ===== */
+.backup-buttons {
     display: flex;
     gap: 10px;
-    margin-top: 20px;
+    margin-left: auto;
 }
 
-.btn-submit {
-    flex: 1;
-    padding: 12px 20px;
-    background: #8b5cf6;
-    color: white;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    font-weight: 600;
-    transition: background 0.3s ease;
-    font-size: 1em;
-}
-
-.btn-submit:hover {
-    background: #7c3aed;
-}
-
-.btn-reset {
-    padding: 12px 20px;
-    background: #ef4444;
-    color: white;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    font-weight: 600;
-    transition: background 0.3s ease;
-    font-size: 1em;
-}
-
-.btn-reset:hover {
-    background: #dc2626;
-}
-
-.clienti-table-container {
-    margin-top: 30px;
-}
-
-.clienti-table-container h3 {
-    color: var(--text-primary);
-    margin-bottom: 15px;
-    font-size: 1.1em;
-    font-weight: 600;
-}
-
-.table-filter {
-    display: flex;
-    gap: 10px;
-    margin-bottom: 15px;
-}
-
-.table-filter input {
-    flex: 1;
-    padding: 10px;
-    border: 2px solid var(--border-color);
-    border-radius: 6px;
-    font-size: 0.95em;
-}
-
-.table-filter input:focus {
-    outline: none;
-    border-color: #8b5cf6;
-    box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.1);
-}
-
-.table-filter button {
+.backup-btn, .restore-btn, .update-prices-btn {
     padding: 10px 15px;
-    background: var(--text-secondary);
-    color: white;
     border: none;
     border-radius: 6px;
     cursor: pointer;
-    font-weight: 600;
-    transition: background 0.3s ease;
-}
-
-.table-filter button:hover {
-    background: var(--text-primary);
-}
-
-.table-scroll {
-    overflow-x: auto;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-}
-
-.clienti-table {
-    width: 100%;
-    border-collapse: collapse;
-    background: var(--surface);
-}
-
-.clienti-table thead {
-    background: linear-gradient(135deg, #8b5cf6 0%, #6366f1 100%);
-    color: white;
-    position: sticky;
-    top: 0;
-}
-
-.clienti-table th {
-    padding: 12px;
-    text-align: left;
-    font-weight: 600;
-    font-size: 0.95em;
-}
-
-.clienti-table td {
-    padding: 12px;
-    border-bottom: 1px solid var(--border-color);
-    font-size: 0.95em;
-}
-
-.clienti-table tbody tr {
-    transition: background 0.3s ease;
-}
-
-.clienti-table tbody tr:hover {
-    background: var(--background);
-}
-
-.clienti-table a {
-    color: #3b82f6;
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-.clienti-table a:hover {
-    color: #1d4ed8;
-    text-decoration: underline;
-}
-
-.clienti-actions {
-    display: flex;
-    gap: 8px;
-}
-
-.btn-edit,
-.btn-delete {
-    padding: 6px 12px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 0.85em;
     font-weight: 600;
     transition: all 0.3s ease;
 }
 
-.btn-edit {
+.backup-btn {
     background: #3b82f6;
     color: white;
 }
 
-.btn-edit:hover {
-    background: #1d4ed8;
+.backup-btn:hover {
+    background: #2563eb;
 }
 
-.btn-delete {
-    background: #ef4444;
+.restore-btn {
+    background: #10b981;
     color: white;
 }
 
-.btn-delete:hover {
-    background: #dc2626;
-}
-.menu-tabs {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin-bottom: 24px;
-    border-bottom: 2px solid var(--border-color);
-    padding-bottom: 8px;
+.restore-btn:hover {
+    background: #059669;
 }
 
-.menu-tab {
-    background: var(--background);
-    border: none;
-    padding: 10px 20px;
-    border-radius: 30px;
-    cursor: pointer;
-    font-weight: 600;
-    color: var(--text-secondary);
-    transition: all 0.2s ease;
-}
-
-.menu-tab:hover {
-    background: var(--primary-color);
+.update-prices-btn {
+    background: #8b5cf6;
     color: white;
-    transform: translateY(-2px);
 }
 
-.menu-tab.active {
-    background: var(--primary-color);
-    color: white;
-    box-shadow: 0 4px 10px rgba(99, 102, 241, 0.3);
+.update-prices-btn:hover {
+    background: #7c3aed;
 }
 
-.menu-card {
-    background: white;
-    border-radius: 20px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
-    overflow: hidden;
-    animation: fadeIn 0.3s ease;
+.update-prices-btn:disabled {
+    background: #94a3b8;
+    cursor: not-allowed;
 }
 
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-.meal-group {
-    border-bottom: 1px solid var(--border-color);
-    padding: 16px 20px;
-    transition: background 0.2s;
-}
-
-.meal-group:last-child {
-    border-bottom: none;
-}
-
-.meal-header {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    margin-bottom: 12px;
-    cursor: pointer;
-    user-select: none;
-}
-
-.meal-header h3 {
-    font-size: 1.2rem;
-    margin: 0;
-    color: var(--text-primary);
-}
-
-.meal-icon {
-    font-size: 1.4rem;
-}
-
-.toggle-meal {
-    margin-left: auto;
-    background: none;
-    border: none;
-    font-size: 1.2rem;
-    cursor: pointer;
-    color: var(--text-secondary);
-    transition: transform 0.2s;
-}
-
-.toggle-meal.collapsed {
-    transform: rotate(-90deg);
-}
-
-.meal-content {
-    padding-top: 8px;
-    transition: all 0.2s;
-}
-
-.meal-content.collapsed {
-    display: none;
-}
-
-.course-row {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-    gap: 12px;
-    margin-bottom: 12px;
-}
-
-.course-selector {
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-}
-
-.course-selector label {
-    font-size: 0.8rem;
-    font-weight: 600;
-    color: var(--text-secondary);
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-}
-
-.recipe-select {
-    width: 100%;
-    padding: 8px 10px;
-    border: 1px solid var(--border-color);
-    border-radius: 12px;
-    background: var(--background);
-    font-size: 0.9rem;
-    transition: all 0.2s;
-}
-
-.recipe-select:focus {
-    outline: none;
-    border-color: var(--primary-color);
-    box-shadow: 0 0 0 2px rgba(99,102,241,0.2);
-}
-
-.recipe-link-summary {
-    margin-top: 12px;
-    padding: 10px;
-    background: #f1f5f9;
-    border-radius: 12px;
-    font-size: 0.85rem;
-}
-
-.recipe-link-summary a {
-    color: var(--primary-color);
-    text-decoration: none;
-    margin-right: 12px;
-}
-
-.recipe-link-summary a:hover {
-    text-decoration: underline;
-}
-
-.btn-show-links {
-    background: none;
-    border: none;
-    color: var(--primary-color);
-    font-size: 0.8rem;
-    cursor: pointer;
-    margin-top: 8px;
-    padding: 4px 8px;
-    border-radius: 20px;
-    transition: background 0.2s;
-}
-
-.btn-show-links:hover {
-    background: rgba(99,102,241,0.1);
+@media (max-width: 768px) {
+    .spesa-summary {
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+    .backup-buttons {
+        margin-left: 0;
+        width: 100%;
+        justify-content: center;
+    }
 }
 
 /* FOOTER */

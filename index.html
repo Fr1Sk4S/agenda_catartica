@@ -33,11 +33,7 @@
                         <option value="domenica">Domenica</option>
                     </select>
                 </div>
-                
-                <div id="attivita-list" class="attivita-list">
-                    <!-- Verranno compilate dinamicamente -->
-                </div>
-
+                <div id="attivita-list" class="attivita-list"></div>
                 <div class="activity-input">
                     <input type="text" id="new-activity" placeholder="Aggiungi una nuova attività...">
                     <button onclick="aggiungiAttivita()">Aggiungi</button>
@@ -46,28 +42,24 @@
         </section>
 
         <!-- SEZIONE 2: PROGRAMMA CUCINA SETTIMANALE -->
-        		<section class="section" id="menu-section">
-    <div class="section-header">
-        <h2>🍽️ Programma Cucina Settimanale</h2>
-        <button class="toggle-btn" onclick="toggleSection('menu-section')">▼</button>
-    </div>
-    <div class="section-content">
-        <!-- Selettore giorno a schede -->
-        <div class="menu-tabs">
-            <button class="menu-tab active" data-day="lunedi">Lunedì</button>
-            <button class="menu-tab" data-day="martedi">Martedì</button>
-            <button class="menu-tab" data-day="mercoledi">Mercoledì</button>
-            <button class="menu-tab" data-day="giovedi">Giovedì</button>
-            <button class="menu-tab" data-day="venerdi">Venerdì</button>
-            <button class="menu-tab" data-day="sabato">Sabato</button>
-            <button class="menu-tab" data-day="domenica">Domenica</button>
-        </div>
-
-        <!-- Contenitore per il giorno selezionato -->
-        <div id="menu-day-container"></div>
-    </div>
-</section>
-                
+        <section class="section" id="menu-section">
+            <div class="section-header">
+                <h2>🍽️ Programma Cucina Settimanale</h2>
+                <button class="toggle-btn" onclick="toggleSection('menu-section')">▼</button>
+            </div>
+            <div class="section-content">
+                <div class="menu-tabs">
+                    <button class="menu-tab active" data-day="lunedi">Lunedì</button>
+                    <button class="menu-tab" data-day="martedi">Martedì</button>
+                    <button class="menu-tab" data-day="mercoledi">Mercoledì</button>
+                    <button class="menu-tab" data-day="giovedi">Giovedì</button>
+                    <button class="menu-tab" data-day="venerdi">Venerdì</button>
+                    <button class="menu-tab" data-day="sabato">Sabato</button>
+                    <button class="menu-tab" data-day="domenica">Domenica</button>
+                </div>
+                <div id="menu-day-container"></div>
+            </div>
+        </section>
 
         <!-- SEZIONE 3: LISTA DELLA SPESA -->
         <section class="section" id="spesa-section">
@@ -86,11 +78,8 @@
                             <th>Acquistato</th>
                         </tr>
                     </thead>
-                    <tbody id="spesa-body">
-                        <!-- Verranno compilate dinamicamente -->
-                    </tbody>
+                    <tbody id="spesa-body"></tbody>
                 </table>
-
                 <div class="spesa-input">
                     <input type="text" id="new-product" placeholder="Prodotto">
                     <input type="number" id="product-qty" placeholder="Quantità" value="1">
@@ -113,99 +102,13 @@
                     <input type="number" id="product-price" placeholder="Prezzo" step="0.01">
                     <button onclick="aggiungiProdotto()">Aggiungi</button>
                 </div>
-
                 <div class="spesa-summary">
                     <p>Totale stimato: <strong>€ <span id="total-price">0.00</span></strong></p>
                     <button class="reset-btn" onclick="resetSpesa()">Resetta Lista</button>
-                    <button class="export-btn" onclick="esportaSpesa()">Esporta PDF</button>
+                    <button class="export-btn" onclick="esportaSpesa()">Esporta CSV</button>
                 </div>
             </div>
         </section>
-
-        <!-- SEZIONE 4: GESTIONE CLIENTI -->
-        <section class="section" id="clienti-section">
-            <div class="section-header">
-                <h2>👥 Gestione Clienti</h2>
-                <button class="toggle-btn" onclick="toggleSection('clienti-section')">▼</button>
-            </div>
-            <div class="section-content">
-                <div class="clienti-form">
-                    <h3>Aggiungi Nuovo Cliente</h3>
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="client-nome">Nome *</label>
-                            <input type="text" id="client-nome" placeholder="Nome">
-                        </div>
-                        <div class="form-group">
-                            <label for="client-cognome">Cognome *</label>
-                            <input type="text" id="client-cognome" placeholder="Cognome">
-                        </div>
-                    </div>
-
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="client-data">Data *</label>
-                            <input type="date" id="client-data">
-                        </div>
-                        <div class="form-group">
-                            <label for="client-orario">Orario *</label>
-                            <input type="time" id="client-orario">
-                        </div>
-                    </div>
-
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="client-telefono">Telefono *</label>
-                            <input type="tel" id="client-telefono" placeholder="+39 123 456 7890">
-                        </div>
-                        <div class="form-group">
-                            <label for="client-email">Email *</label>
-                            <input type="email" id="client-email" placeholder="email@example.com">
-                        </div>
-                    </div>
-
-                    <div class="form-row">
-                        <div class="form-group full">
-                            <label for="client-note">Note</label>
-                            <textarea id="client-note" placeholder="Aggiungi note aggiuntive..." rows="3"></textarea>
-                        </div>
-                    </div>
-
-                    <div class="form-actions">
-                        <button class="btn-submit" onclick="aggiungiCliente()">Aggiungi Cliente</button>
-                        <button class="btn-reset" onclick="resetFormCliente()">Ripulisci</button>
-                    </div>
-                </div>
-
-                <div class="clienti-table-container">
-                    <h3>Elenco Clienti</h3>
-                    <div class="table-filter">
-                        <input type="date" id="filter-data" placeholder="Filtra per data" onchange="filtreClienti()">
-                        <button onclick="resetFiltri()">Ripristina Filtri</button>
-                    </div>
-                    <div class="table-scroll">
-                        <table class="clienti-table">
-                            <thead>
-                                <tr>
-                                    <th>Nome</th>
-                                    <th>Cognome</th>
-                                    <th>Data</th>
-                                    <th>Orario</th>
-                                    <th>Telefono</th>
-                                    <th>Email</th>
-                                    <th>Note</th>
-                                    <th>Azioni</th>
-                                </tr>
-                            </thead>
-                            <tbody id="clienti-body">
-                                <!-- Verranno compilate dinamicamente -->
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </section>
-
     </div>
 
     <footer>
