@@ -26,15 +26,6 @@ Un'applicazione web completa per organizzare la tua vita quotidiana, pianificare
 - Esporta la lista in formato CSV
 - Resetta rapidamente la lista
 
-### 4. 👥 Gestione Clienti
-- Inserisci i dati completi dei clienti
-- Seleziona data da calendario e orario
-- Archivia telefono e email (cliccabili)
-- Aggiungi note personalizzate
-- Modifica e elimina clienti
-- Filtra per data
-- Ordina automaticamente per data/orario
-
 ## 🚀 Come Usare
 
 ### Requisiti
@@ -69,17 +60,6 @@ Un'applicazione web completa per organizzare la tua vita quotidiana, pianificare
 5. Clicca "Aggiungi"
 6. Una volta acquistato, spunta la casella
 7. Clicca "Esporta PDF" per scaricare la lista
-
-#### Gestione Clienti
-1. Compila il modulo con i dati del cliente
-2. Seleziona la data dal calendario
-3. Inserisci l'orario dell'appuntamento
-4. Telefono e email diventano cliccabili
-5. Aggiungi note se necessario
-6. Clicca "Aggiungi Cliente"
-7. Modifica un cliente cliccando "✏️ Modifica"
-8. Elimina cliccando "🗑️ Elimina"
-9. Filtra per data per visualizzare appuntamenti specifici
 
 ## 📦 Struttura del Progetto
 
